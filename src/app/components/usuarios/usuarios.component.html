@@ -1,0 +1,171 @@
+
+<div class="container-fluid mt-2 mb-5">
+  <div class="row mt-2 mb-5">
+    <div class="col mt-2 mb-5">
+      <div class="text-start pb-4 fw-bold" (click)="volver()">
+        <img src="" alt="">Volver
+      </div>
+      <div class="text-start pb-4 fw-bold">
+        <!-- <i class="{{ moduleItems.icon }} pe-3 "></i>  <span>{{ moduleItems.nombre }}</span> -->
+      </div>
+      <div class="card ">
+        <div class="col">
+          <div class="row mt-3 ps-3 mb-3">
+            <div class="col-3">
+              <div class="col-10 btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"> Crear Usuario </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mb-5">
+        <div class="col-md col-sm col-lg ms-3 mt-4 mb-5 me-3 p-3 card card_option">
+          <div class="row border-bottom">
+            <div class="col fw-bold">Usuario</div>
+            <div class="col fw-bold">Nombre</div>
+            <div class="col fw-bold">Telefono</div>
+            <div class="col fw-bold mb-4">Acciones</div>
+          </div>
+          <div class="row border-bottom mt-4 " *ngFor="let item of students">
+            <div class="col text-break">{{ item.email }}</div>
+            <div class="col text-break">{{ item.nombre }}</div>
+            <div class="col text-break">{{ item.telefono }}</div>
+            <div class="col mb-4">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="modificarUsuarioExitente(item)"> Editar </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="btn btn-danger" (click)="eliminarUsuarioExitente(item)"> Eliminar </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="bg-header-modal-create-usu">
+        <div class="modal-header ">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modificar alumno</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="modificar">
+          <div class="row">
+            <div class="col">
+              <div class="text-start">
+                <div class="pt-2 mb-3">Detalles del usuario: </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-label text-start">Usuario</div>
+                <div> <input type="text" formControlName="email" placeholder="email@adress.com" class="form-control"></div>
+                <div></div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-6 mb-3">
+                    <div class="form-label text-start">Nombres</div>
+                    <input type="text" formControlName="nombre" class="form-control" placeholder="Jhon Perez">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-6 mb-3">
+                    <div class="form-label text-start">Telefono</div>
+                    <input type="text" formControlName="telefono" class="form-control" placeholder="123124123">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <div class="form-label text-start">Contraseña</div>
+                    <input type="text" formControlName="contrasena" class="form-control" placeholder="Contraseña">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="align-item-start mb-5 d-flex ps-3">
+        <button type="button" class="btn btn-success ms-2" data-bs-dismiss="modal" (click)="modificarInfo()"> Modificar usuario </button>
+        <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop2"  data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="bg-header-modal-create-usu">
+        <div class="modal-header ">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel" >Crear nuevo alumno</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="crearNuevo">
+          <div class="row">
+            <div class="col">
+              <div class="text-start">
+                <div class="pt-2 mb-3">Detalles del usuario: </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-label text-start">Usuario</div>
+                <div> <input type="text" formControlName="email" placeholder="email@adress.com" class="form-control"></div>
+                <div></div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col mb-3">
+                    <div class="form-label text-start">Nombres</div>
+                    <input type="text" formControlName="nombre" class="form-control" placeholder="Jhon perez">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-6 mb-3">
+                    <div class="form-label text-start">Telefono</div>
+                    <input type="number" formControlName="telefono" class="form-control" placeholder="12345678">
+                  </div>
+                  <div class="col-6 mb-3">
+                    <div class="form-label text-start">Contraseña</div>
+                    <input type="password" formControlName="contrasena" class="form-control" placeholder="Contraseña">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <form>
+          <div class="col">
+            <div class="row">
+              <div class="col-6 mb-3">
+                <div class="form-label text-start">Perfil</div>
+                <input  type="text" class="form-control" readonly [value]="perfil">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="align-item-start mb-5 d-flex ps-3">
+        <button type="button" class="btn btn-success ms-2" data-bs-dismiss="modal" (click)="crearAlumnoNuevo()"> Crear usuario </button>
+        <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

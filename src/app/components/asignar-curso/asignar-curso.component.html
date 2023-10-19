@@ -1,0 +1,100 @@
+
+<div class="container-fluid mt-2 mb-5">
+  <div class="modal fade" id="staticBackdrop2"  data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="bg-header-modal-create-usu">
+        <div class="modal-header ">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel" > Asignar curso</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="asignarCurso">
+          <div class="row">
+            <div class="col">
+              <div class="text-start">
+                <div class="pt-2 mb-3">Detalles del usuario: </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-label text-start">Curso</div>
+                <div>
+                  <select formControlName="id_curso" class="form-select" aria-label="Default select example">
+                    <option value = "Seleccione" selected disabled>Seleccione</option>
+                    <option *ngFor="let item of cursos" value="{{ item.id}}">{{ item.nombre_curso }}</option>
+
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col mb-3">
+                    <div class="form-label text-start">Alumno</div>
+                    <select formControlName="id_alumno" class="form-select" aria-label="Default select example">
+                      <option value = "Seleccione" selected disabled>Seleccione</option>
+                      <option *ngFor="let item of students" value="{{ item.id_user}}">{{ item.nombre }}</option>
+
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="align-item-start mb-5 d-flex ps-3">
+        <button type="button" class="btn btn-success ms-2" data-bs-dismiss="modal" (click)="crearAsignacionNueva()"> Asignar </button>
+        <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row mt-2 mb-5">
+    <div class="col mt-2 mb-5">
+      <div class="text-start pb-4 fw-bold" (click)="volver()">
+        <img src="" alt="">Volver
+      </div>
+      <div class="text-start pb-4 fw-bold">
+        <!-- <i class="{{ moduleItems.icon }} pe-3 "></i>  <span>{{ moduleItems.nombre }}</span> -->
+      </div>
+      <div class="card ">
+        <div class="col">
+          <div class="row mt-3 ps-3 mb-3">
+            <div class="col-3">
+              <div class="col-10 btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"> Asignar Curso </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mb-5">
+        <div class="col-md col-sm col-lg ms-3 mt-4 mb-5 me-3 p-3 card card_option">
+          <div class="row border-bottom">
+            <div class="col fw-bold">Usuario</div>
+            <div class="col fw-bold">Nombre</div>
+            <div class="col fw-bold">Telefono</div>
+            <div class="col fw-bold">Curso</div>
+            <div class="col fw-bold">I/H</div>
+          </div>
+          <div class="row border-bottom mt-4 " *ngFor="let item of asignaciones">
+            <div class="col text-break">{{ item.email }}</div>
+            <div class="col text-break">{{ item.nombre }}</div>
+            <div class="col text-break">{{ item.telefono }}</div>
+            <div class="col text-break">{{ item.nombre_curso }}</div>
+            <div class="col text-break">{{ item.intensidad_horaria }}</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

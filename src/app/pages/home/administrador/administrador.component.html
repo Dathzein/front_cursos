@@ -1,0 +1,56 @@
+<!-- <div class="row">
+
+  <div class="col">
+      <div class="col-2">
+          <form>
+              <p>Nombre del curso </p> <input class="form-control mt-3 mb-3" type="text" name="curso">
+              <p>Intensidad Horaria <br> <input class="form-control mt-3 mb-3" type="text" name="horas"> <br>
+              <button class="btn btn-primary" type="submit" title="Ingresar" name="Ingresar">Enviar</button> </p>
+
+          </form>
+          <form>
+              <p>Nombre</p> <input class="form-control mt-3 mb-3" type="text" name="nombre">
+              <p>Correo</p> <input class="form-control mt-3 mb-3" type="text" name="email">
+              <p>Telefono</p> <input class="form-control mt-3 mb-3" type="text" name="telefono">
+              <p>Contraseña <br> <input class="form-control mt-3 mb-3" type="password" name="Contraseña"> <br>
+              <button class="btn btn-primary" type="submit" title="Ingresar" name="Ingresar">Enviar</button> </p>
+          </form>
+
+      </div>
+  </div>
+</div> -->
+
+<div *ngIf="idPerfil == '1'">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card p-5" (click)="irCursos()">
+        <div class="fw-bold text-center">
+          Cursos
+        </div>
+      </div>
+      <div class="card p-5" (click)="irAlumnos()">
+        <div class="fw-bold text-center">
+          Alumnos
+        </div>
+      </div>
+      <div class="card p-5" (click)="irUsuarios()">
+        <div class="fw-bold text-center">
+          Usuarios
+        </div>
+      </div>
+      <div class="card p-5" (click)="irAsignar()">
+        <div class="fw-bold text-center">
+          Asignar Curso
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="idPerfil == '2'">
+  <div class="card p-5" (click)="irAsignadis()">
+    <div class="fw-bold text-center">
+      cursos
+    </div>
+  </div>
+
+</div>
